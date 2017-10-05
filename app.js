@@ -264,9 +264,10 @@ function initMap() {
 		]
 
 	});
+map.data.loadGeoJson('data/nyc_neighborhoods.json');
 }
 
-map.data.loadGeoJson('data/nyc_neighborhoods.geojson');
+
 
 
 
