@@ -6,7 +6,7 @@ var cachedGeoJson;
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: 40.6944, lng: -73.9213},
-		zoom: 11,
+		zoom: 12,
 		styles: [
 		{
 			"elementType": "geometry",
@@ -267,9 +267,9 @@ function initMap() {
 
 	});
 	var ctaLayer = new google.maps.KmlLayer({
-          url: 'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml',
-          map: map
-        });
+		url: 'https://rtehranifar.github.io/nyc_neighborhoods.kml',
+		map: map
+	});
 }
 // });
 
@@ -282,16 +282,16 @@ function initMap() {
 
 
 // define global variables
-	//map
-	//geojson
+//map
+//geojson
 // create evenhandlers
-	//switch colors
-	//load aside with ethnic group
-	// click on ethnic group
-		// hit api
-		// show restaurants on map
-		// show restaurants on aside
+//switch colors
+//load aside with ethnic group
+// click on ethnic group
+	// hit api
+	// show restaurants on map
+	// show restaurants on aside
 
 // on load
-	// initialize map
-	// load geojson
+// initialize map
+// load geojson
