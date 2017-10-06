@@ -1,6 +1,8 @@
 
 
+// google.maps.event.addDomListener(window, 'load', function initialize() {
 var map;
+var cachedGeoJson;
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: 40.6944, lng: -73.9213},
@@ -264,9 +266,12 @@ function initMap() {
 		]
 
 	});
-map.data.loadGeoJson('data/nyc_neighborhoods.json');
+	var ctaLayer = new google.maps.KmlLayer({
+          url: 'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml',
+          map: map
+        });
 }
-
+// });
 
 
 
