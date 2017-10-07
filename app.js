@@ -1,12 +1,11 @@
 
 
-// google.maps.event.addDomListener(window, 'load', function initialize() {
-var map;
+
 var cachedGeoJson;
 function initMap() {
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: 40.6944, lng: -73.9213},
-		zoom: 12,
+		zoom: 10,
 		styles: [
 		{
 			"elementType": "geometry",
@@ -265,13 +264,16 @@ function initMap() {
 		}
 		]
 
+	
 	});
-	var ctaLayer = new google.maps.KmlLayer({
-		url: 'https://rtehranifar.github.io/nyc_neighborhoods.kml',
-		map: map
-	});
+	// map.data.loadGeoJson('data/nyc_neighborhoods.json');
 }
-// });
+var promise = $.getJSON('data/nyc_neighborhoods.json'); //same as map.data.loadGeoJson();
+			promise.then(function(data){
+				cachedGeoJson = data; //save the geojson in case we want to update its values
+				map.data.addGeoJson(cachedGeoJson,{idPropertyName:"id"});  
+			});
+
 
 
 
