@@ -266,13 +266,14 @@ function initMap() {
 
 	
 	});
-	// map.data.loadGeoJson('data/nyc_neighborhoods.json');
-}
-var promise = $.getJSON('data/nyc_neighborhoods.json'); //same as map.data.loadGeoJson();
+
+	var promise = $.getJSON('data/nyc_neighborhoods.json'); //same as map.data.loadGeoJson();
 			promise.then(function(data){
 				cachedGeoJson = data; //save the geojson in case we want to update its values
-				map.data.addGeoJson(cachedGeoJson,{idPropertyName:"id"});  
+				map.data.addGeoJson(cachedGeoJson);  
 			});
+	
+}
 
 
 
@@ -283,9 +284,10 @@ var promise = $.getJSON('data/nyc_neighborhoods.json'); //same as map.data.loadG
 
 
 
-// define global variables
-//map
-//geojson
+
+
+//map - done
+//geojson -done
 // create evenhandlers
 //switch colors
 //load aside with ethnic group
