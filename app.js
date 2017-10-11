@@ -2,7 +2,9 @@
 
 
 var cachedGeoJson;
+var nabe
 function initMap() {
+	console.log("initmap")
 	map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: 40.6944, lng: -73.9213},
 		zoom: 10,
@@ -264,19 +266,32 @@ function initMap() {
 		}
 		]
 
-	
+
 	});
 
 	var promise = $.getJSON('data/nyc_neighborhoods.json'); //same as map.data.loadGeoJson();
-			promise.then(function(data){
+	promise.then(function(data){
 				cachedGeoJson = data; //save the geojson in case we want to update its values
 				map.data.addGeoJson(cachedGeoJson);  
 			});
+
+map.data.addListener('click', function(e){
+	nabe =  e.feature.f.neighborho;
+	console.log('nabe is: ' + nabe);
+	$('#neighborhood').html(e.feature.f.neighborho)
+	$('#first-group').html(e.feature.f.largest_gr)
+	$('#second-group').html(e.feature.f.second_gro)
+	$('#third-group').html(e.feature.f.third_grou)
+
+});
+
+
+
 	
 }
 
 
-
+// jquery
 
 
 

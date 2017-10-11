@@ -1,23 +1,34 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-	<title>WERA-When in Rome</title>
-	<meta name='viewport' content='initial-scale=1.0'>
-    <meta charset='utf-8'>
-	<link rel='stylesheet' href='styles.css'>
-	<script src='vendors/jquery-3.2.1.min.js'></script>
-	<script src='vendors/handlebars-v4.0.10.js'></script>
-	<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAFaiEEG2QEhSIVYl9mkd2CBI8LLoyYjQg&callback=initMap'
-    async defer></script>
-	<script src='app.js'></script>
-</head>
-<body>
-<div id='map'></div>
-</body>
+	<head>
+		<title>WERA-When in Rome</title>
+		<meta name='viewport' content='initial-scale=1.0'>
+		<meta charset='utf-8'>
+		<link rel='stylesheet' href='styles.css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	
+		<script src='vendors/jquery-3.2.1.min.js'></script>
+		<script src='vendors/handlebars-v4.0.10.js'></script>
+		<script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAFaiEEG2QEhSIVYl9mkd2CBI8LLoyYjQg&callback=initMap'
+		async defer></script>
+		<script src='app.js'></script>
+	</head>
+	<body>
+		<div id='search-results'>
+			<h2 id = 'neighborhood'></h2>
+			<ol type='1' id='ethnic-groups'>
+				<li id='first-group'></li>
+				<li id='second-group'></li>
+				<li id='third-group'></li>
+			</ol>
+		</div>
+		<div id='map'></div>
+	</body>
+
 </html>
 
-<!-- links --> -
+<!-- links --> 
 	<!-- jquery -->
 	<!-- google maps -->
 	<!-- gooogle places -->
