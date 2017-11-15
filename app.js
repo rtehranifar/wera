@@ -1,11 +1,14 @@
 
-
-
+function initialize() {
 var cachedGeoJson;
 var nabe
-function initMap() {
+var service;
+var infowindow;
+
+
+var test = new google.maps.LatLng(40.6944,-73.9213)
 	console.log("initmap")
-	map = new google.maps.Map(document.getElementById('map'), {
+	var map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: 40.6944, lng: -73.9213},
 		zoom: 10,
 		styles: [
@@ -282,14 +285,43 @@ map.data.addListener('click', function(e){
 	$('#first-group').html(e.feature.f.largest_gr)
 	$('#second-group').html(e.feature.f.second_gro)
 	$('#third-group').html(e.feature.f.third_grou)
-
 });
 
+var request = {
+    location: test,
+    radius: '500000',
+    keyword: 'Bedford-Stuyvesant',
+    type: ['restaurant']
+  };
+
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, callback);
 
 
+function callback(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(results[i]);
+      console.log(place)
+    }
+  }
 	
 }
+function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
 
+}
+// google.maps.event.addListener(marker, 'click', function() {
+//           infowindow.setContent(place.name);
+//           infowindow.open(map, this);
+//         });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
 
 // jquery
 
