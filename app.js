@@ -210,11 +210,9 @@ function initialize() {
 
     });
 
-    var promise = $.getJSON('data/nyc_neighborhoods.json');
-    promise.then(function(data) {
-        cachedGeoJson = data;
-        map.data.addGeoJson(cachedGeoJson);
-    });
+		$.getJSON( "data/nyc_neighborhoods.json", function( response ) {
+			map.data.addGeoJson( response );
+		});
 
     map.data.addListener('click', function(e) {
         nabe = e.feature.f.neighborho;
