@@ -272,9 +272,9 @@ var test = new google.maps.LatLng(40.6944,-73.9213)
 
 	});
 
-	var promise = $.getJSON('data/nyc_neighborhoods.json'); //same as map.data.loadGeoJson();
+	var promise = $.getJSON('data/nyc_neighborhoods.json'); 
 	promise.then(function(data){
-				cachedGeoJson = data; //save the geojson in case we want to update its values
+				cachedGeoJson = data; 
 				map.data.addGeoJson(cachedGeoJson);  
 			});
 
@@ -285,13 +285,13 @@ map.data.addListener('click', function(e){
 	$('#first-group').html(e.feature.f.largest_gr)
 	$('#second-group').html(e.feature.f.second_gro)
 	$('#third-group').html(e.feature.f.third_grou)
-});
+
 
 var request = {
     location: test,
-    radius: '500000',
+    radius: '5000',
     keyword: 'Bedford-Stuyvesant',
-    type: ['restaurant']
+    types: ['restaurant', 'West Indian']
   };
 
   service = new google.maps.places.PlacesService(map);
@@ -303,7 +303,7 @@ function callback(results, status) {
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
       createMarker(results[i]);
-      console.log(place)
+    //   console.log(place)
     }
   }
 	
@@ -316,10 +316,24 @@ function createMarker(place) {
         });
 
 }
+$.ajax({
+	url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=chinese+restaurants+in+flushingy&key=AIzaSyCXicmfnWQzHSm3iOcJBe6HxoYwaYvwKHI',
+	type: 'GET',
+	dataType: 'jsonp',
+	cache: false,
+	success: function (data) {
+		console.log(data)
+	}
+   })
+//    .done(function( data ) {
+// 	// console.log(data);
+// 	// return data
+//    });
 // google.maps.event.addListener(marker, 'click', function() {
 //           infowindow.setContent(place.name);
 //           infowindow.open(map, this);
 //         });
+});
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
