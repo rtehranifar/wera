@@ -1,3 +1,5 @@
+var map;
+
 function initialize() {
     var cachedGeoJson;
     var nabe
@@ -7,7 +9,7 @@ function initialize() {
 
     var test = new google.maps.LatLng(40.6944, -73.9213)
     console.log("initmap")
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 40.6944, lng: -73.9213 },
         zoom: 10,
         styles: [{
