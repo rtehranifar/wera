@@ -253,15 +253,15 @@ function initialize() {
             });
 
         }
-        $.ajax({
-            url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=chinese+restaurants+in+flushingy&key=AIzaSyCXicmfnWQzHSm3iOcJBe6HxoYwaYvwKHI',
-            type: 'GET',
-            dataType: 'jsonp',
-            cache: false,
-            success: function(data) {
-                console.log(data)
-            }
-        })
+        // $.ajax({
+        //     url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=chinese+restaurants+in+flushingy&key=AIzaSyCXicmfnWQzHSm3iOcJBe6HxoYwaYvwKHI',
+        //     type: 'GET',
+        //     dataType: 'jsonp',
+        //     cache: false,
+        //     success: function(data) {
+        //         console.log(data)
+        //     }
+        // })
         //    .done(function( data ) {
         // 	// console.log(data);
         // 	// return data
