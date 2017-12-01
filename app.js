@@ -6,8 +6,6 @@ function initialize() {
     var service;
     var infowindow;
 
-
-    var test = new google.maps.LatLng(40.6944, -73.9213);
     console.log("initmap")
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 40.6944, lng: -73.9213 },
@@ -226,7 +224,7 @@ function initialize() {
 
 
         var request = {
-            location: test,
+            location: new google.maps.LatLng(e.feature.f.X, e.feature.f.Y),
             radius: '5000',
             keyword: 'Bedford-Stuyvesant',
             types: ['restaurant', 'West Indian']
