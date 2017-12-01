@@ -235,26 +235,6 @@ function initialize() {
         service = new google.maps.places.PlacesService(map);
         service.nearbySearch(request, callback);
 
-
-        function callback(results, status) {
-            if (status == google.maps.places.PlacesServiceStatus.OK) {
-                for (var i = 0; i < results.length; i++) {
-                    var place = results[i];
-                    createMarker(results[i]);
-                    //   console.log(place)
-                }
-            }
-
-        }
-
-        function createMarker(place) {
-            var placeLoc = place.geometry.location;
-            var marker = new google.maps.Marker({
-                map: map,
-                position: place.geometry.location
-            });
-
-        }
         // $.ajax({
         //     url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=chinese+restaurants+in+flushingy&key=AIzaSyCXicmfnWQzHSm3iOcJBe6HxoYwaYvwKHI',
         //     type: 'GET',
@@ -278,7 +258,25 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 // jquery
 
+function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            var place = results[i];
+            createMarker(results[i]);
+            //   console.log(place)
+        }
+    }
 
+}
+
+function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+    });
+
+}
 
 
 
