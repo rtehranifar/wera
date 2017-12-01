@@ -2,12 +2,12 @@ var map;
 
 function initialize() {
     var cachedGeoJson;
-    var nabe
+    var nabe;
     var service;
     var infowindow;
 
 
-    var test = new google.maps.LatLng(40.6944, -73.9213)
+    var test = new google.maps.LatLng(40.6944, -73.9213);
     console.log("initmap")
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 40.6944, lng: -73.9213 },
@@ -219,10 +219,10 @@ function initialize() {
     map.data.addListener('click', function(e) {
         nabe = e.feature.f.neighborho;
         console.log('nabe is: ' + nabe);
-        $('#neighborhood').html(e.feature.f.neighborho)
-        $('#first-group').html(e.feature.f.largest_gr)
-        $('#second-group').html(e.feature.f.second_gro)
-        $('#third-group').html(e.feature.f.third_grou)
+        $('#neighborhood').html(e.feature.f.neighborho);
+        $('#first-group').html(e.feature.f.largest_gr);
+        $('#second-group').html(e.feature.f.second_gro);
+        $('#third-group').html(e.feature.f.third_grou);
 
 
         var request = {
